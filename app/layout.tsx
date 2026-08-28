@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { headers } from "next/headers";
 import { Geist } from "next/font/google";
 import "./globals.css";
 
@@ -9,21 +8,14 @@ const geist = Geist({
 });
 
 export async function generateMetadata(): Promise<Metadata> {
-  const requestHeaders = await headers();
-  const host =
-    requestHeaders.get("x-forwarded-host") ??
-    requestHeaders.get("host") ??
-    "periolife-diabetes.vercel.app";
-  const protocol =
-    requestHeaders.get("x-forwarded-proto") ??
-    (host.includes("localhost") ? "http" : "https");
-  const baseUrl = `${protocol}://${host}`;
+  const canonicalUrl = "https://lp.periolife.com.br/v2";
+  const assetUrl = "https://periolife-diabetes.vercel.app";
   const title = "Diabetes e Saúde Periodontal | PerioLife Brasília";
   const description =
     "Entenda a relação entre diabetes e periodontite e agende uma avaliação periodontal especializada na PerioLife, em Brasília.";
 
   return {
-    metadataBase: new URL(baseUrl),
+    metadataBase: new URL(assetUrl),
     title,
     description,
     keywords: [
@@ -33,17 +25,17 @@ export async function generateMetadata(): Promise<Metadata> {
       "gengiva sangrando",
       "PerioLife",
     ],
-    alternates: { canonical: baseUrl },
+    alternates: { canonical: canonicalUrl },
     openGraph: {
       type: "website",
       locale: "pt_BR",
-      url: baseUrl,
+      url: canonicalUrl,
       siteName: "PerioLife",
       title,
       description,
       images: [
         {
-          url: `${baseUrl}/og.png`,
+          url: `${assetUrl}/og.png`,
           width: 1734,
           height: 909,
           alt: "Diabetes e saúde periodontal — uma relação de mão dupla",
@@ -54,7 +46,7 @@ export async function generateMetadata(): Promise<Metadata> {
       card: "summary_large_image",
       title,
       description,
-      images: [`${baseUrl}/og.png`],
+      images: [`${assetUrl}/og.png`],
     },
     robots: { index: true, follow: true },
     icons: {

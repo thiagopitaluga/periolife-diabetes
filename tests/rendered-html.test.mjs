@@ -8,7 +8,7 @@ async function render() {
   const { default: worker } = await import(workerUrl.href);
 
   return worker.fetch(
-    new Request("https://periolife-diabetes.vercel.app/", {
+    new Request("https://periolife-diabetes.vercel.app/v2", {
       headers: { accept: "text/html", host: "periolife-diabetes.vercel.app" },
     }),
     { ASSETS: { fetch: async () => new Response("Not found", { status: 404 }) } },
@@ -24,9 +24,11 @@ test("server-renders the PerioLife diabetes landing page", async () => {
   const html = await response.text();
   assert.match(html, /<html[^>]+lang="pt-BR"/i);
   assert.match(html, /Diabetes e Saúde Periodontal \| PerioLife Brasília/i);
-  assert.match(html, /Seu diabetes está sendo cuidado/i);
+  assert.match(html, /Diabetes e saúde periodontal:.*uma relação que você precisa conhecer/is);
   assert.match(html, /Dra\. Elisa Grilo/i);
-  assert.match(html, /−0,43/);
+  assert.match(html, /0,43/);
+  assert.match(html, /QUERO AVALIAR MINHA SAÚDE PERIODONTAL/);
+  assert.match(html, /AGENDAR UMA AVALIAÇÃO PERIODONTAL/);
   assert.match(html, /wa\.me\/5561999603770/);
   assert.match(html, /\/og\.png/);
   assert.doesNotMatch(html, /codex-preview|SkeletonPreview|react-loading-skeleton/i);
