@@ -1,15 +1,37 @@
+import {
+  Activity,
+  ArrowDown,
+  ArrowRight,
+  Check,
+  CircleAlert,
+  Clock,
+  Droplets,
+  Flame,
+  Gauge,
+  HeartPulse,
+  MessageCircle,
+  Move,
+  MoveDown,
+  RefreshCw,
+  Search,
+  ShieldCheck,
+  Stethoscope,
+  Wind,
+  Zap,
+} from "lucide-react";
+
 const whatsappHref =
   "https://wa.me/5561999603770?text=Ol%C3%A1%2C%20tenho%20diabetes%20e%20vim%20pela%20p%C3%A1gina%20da%20PerioLife.%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20periodontal.";
 
 const symptoms = [
-  "sangramento durante a escovação;",
-  "gengiva vermelha ou inchada;",
-  "mau hálito persistente;",
-  "gosto ruim ou diferente na boca;",
-  "retração gengival;",
-  "dentes ficando mais sensíveis;",
-  "alteração na posição dos dentes;",
-  "dentes apresentando mobilidade.",
+  { text: "sangramento durante a escovação;", Icon: Droplets },
+  { text: "gengiva vermelha ou inchada;", Icon: CircleAlert },
+  { text: "mau hálito persistente;", Icon: Wind },
+  { text: "gosto ruim ou diferente na boca;", Icon: Activity },
+  { text: "retração gengival;", Icon: MoveDown },
+  { text: "dentes ficando mais sensíveis;", Icon: Zap },
+  { text: "alteração na posição dos dentes;", Icon: Move },
+  { text: "dentes apresentando mobilidade.", Icon: HeartPulse },
 ];
 
 const recentDiagnosis = [
@@ -39,7 +61,7 @@ function Cta({ final = false }: { final?: boolean }) {
       rel="noreferrer"
     >
       {final ? "AGENDAR UMA AVALIAÇÃO PERIODONTAL" : "QUERO AVALIAR MINHA SAÚDE PERIODONTAL"}
-      <span aria-hidden="true">→</span>
+      <ArrowRight aria-hidden="true" size={17} strokeWidth={1.8} />
     </a>
   );
 }
@@ -82,12 +104,21 @@ export default function Home() {
           <Cta />
         </div>
 
-        <div className="hero-art" aria-label="Representação da relação entre diabetes e periodontite">
+        <div className="hero-art" id="relacao-visual" aria-label="Representação da relação entre diabetes e periodontite">
           <div className="orbit orbit-one" />
           <div className="orbit orbit-two" />
-          <div className="art-node diabetes-node"><span>DIABETES</span><b>Glicemia</b></div>
-          <div className="art-link"><span>↕</span><small>relação bidirecional</small></div>
-          <div className="art-node perio-node"><span>PERIODONTITE</span><b>Inflamação</b></div>
+          <div className="art-node diabetes-node">
+            <div className="art-icon"><Gauge aria-hidden="true" /></div>
+            <div><span>DIABETES</span><b>Glicemia</b></div>
+          </div>
+          <div className="art-link">
+            <span><RefreshCw aria-hidden="true" /></span>
+            <small>relação bidirecional</small>
+          </div>
+          <div className="art-node perio-node">
+            <div className="art-icon"><Flame aria-hidden="true" /></div>
+            <div><span>PERIODONTITE</span><b>Inflamação</b></div>
+          </div>
           <div className="art-caption">Duas condições.<br />Uma mesma saúde.</div>
         </div>
       </section>
@@ -115,18 +146,20 @@ export default function Home() {
         <div className="section-heading">
           <span>02 — ATENÇÃO AOS SINAIS</span>
           <h2>A doença periodontal pode ser silenciosa</h2>
-        </div>
-        <div className="silent-grid">
-          <div className="prose">
+          <div className="silent-intro">
             <p>A periodontite é uma doença inflamatória crônica que destrói, progressivamente, os tecidos que sustentam os dentes.</p>
             <p>Ela pode começar com sinais que parecem pequenos:</p>
           </div>
-          <ul className="symptoms-list">
-            {symptoms.map((symptom, index) => (
-              <li key={symptom}><span>{String(index + 1).padStart(2, "0")}</span>{symptom}</li>
-            ))}
-          </ul>
         </div>
+        <ul className="symptoms-list">
+          {symptoms.map(({ text, Icon }, index) => (
+            <li key={text}>
+              <span className="symptom-number">{String(index + 1).padStart(2, "0")}</span>
+              <span className="symptom-icon"><Icon aria-hidden="true" /></span>
+              <strong>{text}</strong>
+            </li>
+          ))}
+        </ul>
         <div className="after-list prose-wide">
           <p>Mas nem sempre existe dor.</p>
           <p>E é justamente por isso que muitas pessoas só procuram ajuda quando percebem que um dente está ficando mole.</p>
@@ -142,29 +175,31 @@ export default function Home() {
           <p>Imagine duas condições alimentando uma à outra.</p>
         </div>
         <div className="cycle-flow">
-          <article>
-            <span>01</span>
+          <article className="cycle-card cycle-one">
+            <div className="cycle-card-head"><span>01</span><Gauge aria-hidden="true" /></div>
             <h3>DIABETES</h3>
             <p>A hiperglicemia pode favorecer alterações na resposta inflamatória e na capacidade de defesa do organismo.</p>
           </article>
-          <i aria-hidden="true">↓</i>
-          <article>
-            <span>02</span>
+          <article className="cycle-card cycle-two">
+            <div className="cycle-card-head"><span>02</span><ShieldCheck aria-hidden="true" /></div>
             <h3>MAIOR RISCO E GRAVIDADE DA PERIODONTITE</h3>
             <p>A inflamação periodontal pode se tornar mais intensa e a destruição dos tecidos de suporte dos dentes pode ser mais acelerada.</p>
           </article>
-          <i aria-hidden="true">↓</i>
-          <article>
-            <span>03</span>
+          <article className="cycle-card cycle-three">
+            <div className="cycle-card-head"><span>03</span><Flame aria-hidden="true" /></div>
             <h3>INFLAMAÇÃO PERIODONTAL</h3>
             <p>A periodontite é uma fonte crônica de inflamação.</p>
           </article>
-          <i aria-hidden="true">↓</i>
-          <article>
-            <span>04</span>
+          <article className="cycle-card cycle-four">
+            <div className="cycle-card-head"><span>04</span><Activity aria-hidden="true" /></div>
             <h3>MAIOR DIFICULDADE NO CONTROLE GLICÊMICO</h3>
             <p>A inflamação periodontal pode contribuir para alterações relacionadas à resistência à insulina e dificultar o alcance das metas glicêmicas.</p>
           </article>
+          <div className="cycle-core" aria-hidden="true"><RefreshCw /><span>relação<br />bidirecional</span></div>
+          <i className="flow-arrow arrow-top" aria-hidden="true"><ArrowRight /></i>
+          <i className="flow-arrow arrow-right" aria-hidden="true"><ArrowDown /></i>
+          <i className="flow-arrow arrow-bottom" aria-hidden="true"><ArrowRight /></i>
+          <i className="flow-arrow arrow-left" aria-hidden="true"><ArrowDown /></i>
         </div>
         <div className="cycle-conclusion">
           <p className="large">É uma relação bidirecional.</p>
@@ -179,8 +214,8 @@ export default function Home() {
 
       <section className="evidence-section" id="tratamento">
         <div className="evidence-card">
-          <span>REVISÃO COCHRANE · 2022</span>
-          <strong>0,43</strong>
+          <div className="evidence-badge"><Activity aria-hidden="true" /><span>REVISÃO COCHRANE · 2022</span></div>
+          <div className="evidence-value"><strong>0,43</strong><span>↓</span></div>
           <p>ponto percentual na HbA1c após 3 a 4 meses</p>
         </div>
         <div className="evidence-copy">
@@ -204,6 +239,7 @@ export default function Home() {
 
       <section className="life-stage-section">
         <article>
+          <div className="stage-icon"><Search aria-hidden="true" /></div>
           <span>05 — DIAGNÓSTICO RECENTE</span>
           <h2>Você descobriu que tem diabetes recentemente?</h2>
           <p>Então este é um ótimo momento para olhar também para a sua saúde periodontal.</p>
@@ -217,12 +253,13 @@ export default function Home() {
         </article>
 
         <article className="dark-stage">
+          <div className="stage-icon"><Clock aria-hidden="true" /></div>
           <span>06 — DIABETES HÁ ANOS</span>
           <h2>E se você já tem diabetes há anos?</h2>
           <p>Também vale investigar.</p>
           <p>Principalmente se você apresenta:</p>
           <ul className="check-list">
-            {longTermSigns.map((item) => <li key={item}>✓ {item}</li>)}
+            {longTermSigns.map((item) => <li key={item}><Check aria-hidden="true" /> {item}</li>)}
           </ul>
           <p className="stage-closing">Não espere a mobilidade dentária aparecer para procurar um especialista.</p>
         </article>
@@ -240,8 +277,8 @@ export default function Home() {
           <p>No paciente com diabetes, essa avaliação ganha ainda mais importância porque é necessário considerar não apenas o que acontece na boca, mas também a relação entre inflamação periodontal e condição metabólica.</p>
           <p>Na PerioLife, esse cuidado é realizado por uma profissional dedicada à Periodontia:</p>
           <div className="doctor-name">
-            <strong>Dra. Elisa Grilo</strong>
-            <span>Especialista em Periodontia</span>
+            <Stethoscope aria-hidden="true" />
+            <div><strong>Dra. Elisa Grilo</strong><span>Especialista em Periodontia</span></div>
           </div>
           <p>Um olhar especializado para diagnosticar a doença periodontal, determinar seu estágio e grau de evolução e definir um plano de tratamento individualizado.</p>
           <p>Porque tratar gengiva não é simplesmente “fazer uma limpeza”.</p>
@@ -287,10 +324,10 @@ export default function Home() {
       </footer>
 
       <a className="floating-whatsapp" href={whatsappHref} target="_blank" rel="noreferrer" aria-label="Agendar uma avaliação periodontal">
-        <span>W</span><b>Agendar avaliação</b>
+        <span><MessageCircle aria-hidden="true" /></span><b>Agendar avaliação</b>
       </a>
       <div className="mobile-sticky">
-        <a href={whatsappHref} target="_blank" rel="noreferrer">AGENDAR UMA AVALIAÇÃO PERIODONTAL <span>→</span></a>
+        <a href={whatsappHref} target="_blank" rel="noreferrer">AGENDAR UMA AVALIAÇÃO PERIODONTAL <ArrowRight aria-hidden="true" /></a>
       </div>
     </main>
   );
