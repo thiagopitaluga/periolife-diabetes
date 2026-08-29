@@ -89,37 +89,28 @@ export default function Home() {
       </header>
 
       <section className="hero" id="inicio">
+        <img className="hero-background" src="/assets/periolife-diabetes-hero.png" alt="" aria-hidden="true" />
         <div className="hero-copy">
           <p className="kicker">DIABETES + SAÚDE PERIODONTAL</p>
           <h1>Diabetes e saúde periodontal: <em>uma relação que você precisa conhecer</em></h1>
           <p className="hero-lead">Se você tem diabetes, cuidar da sua gengiva também faz parte do cuidado com a sua saúde.</p>
-          <div className="hero-body">
-            <p>Você provavelmente já sabe que o diabetes pode afetar os olhos, os rins, os nervos e o coração.</p>
-            <p>Mas talvez ainda não saiba que existe outra relação importante — e muitas vezes esquecida:</p>
-            <p className="hero-emphasis">o diabetes e a doença periodontal estão diretamente relacionados.</p>
-            <p>E essa relação funciona nos dois sentidos.</p>
-            <p>O diabetes pode aumentar o risco e a gravidade da doença periodontal. E a inflamação causada pela periodontite pode dificultar o controle da glicemia.</p>
-            <p>Por isso, se você tem diabetes, sua boca também merece acompanhamento especializado.</p>
+          <div className="hero-highlight">
+            <HeartPulse aria-hidden="true" />
+            <p>o diabetes e a doença periodontal estão diretamente relacionados.</p>
           </div>
           <Cta />
         </div>
+      </section>
 
-        <div className="hero-art" id="relacao-visual" aria-label="Representação da relação entre diabetes e periodontite">
-          <div className="orbit orbit-one" />
-          <div className="orbit orbit-two" />
-          <div className="art-node diabetes-node">
-            <div className="art-icon"><Gauge aria-hidden="true" /></div>
-            <div><span>DIABETES</span><b>Glicemia</b></div>
-          </div>
-          <div className="art-link">
-            <span><RefreshCw aria-hidden="true" /></span>
-            <small>relação bidirecional</small>
-          </div>
-          <div className="art-node perio-node">
-            <div className="art-icon"><Flame aria-hidden="true" /></div>
-            <div><span>PERIODONTITE</span><b>Inflamação</b></div>
-          </div>
-          <div className="art-caption">Duas condições.<br />Uma mesma saúde.</div>
+      <section className="hero-context" aria-label="Entenda por que essa relação importa">
+        <div className="hero-context-intro">
+          <p>Você provavelmente já sabe que o diabetes pode afetar os olhos, os rins, os nervos e o coração.</p>
+          <p>Mas talvez ainda não saiba que existe outra relação importante — e muitas vezes esquecida:</p>
+        </div>
+        <div className="hero-context-outcome">
+          <p>E essa relação funciona nos dois sentidos.</p>
+          <p>O diabetes pode aumentar o risco e a gravidade da doença periodontal. E a inflamação causada pela periodontite pode dificultar o controle da glicemia.</p>
+          <p>Por isso, se você tem diabetes, sua boca também merece acompanhamento especializado.</p>
         </div>
       </section>
 
@@ -160,7 +151,7 @@ export default function Home() {
             </li>
           ))}
         </ul>
-        <div className="after-list prose-wide">
+        <div className="after-list prose-wide" id="diagnostico-precoce">
           <p>Mas nem sempre existe dor.</p>
           <p>E é justamente por isso que muitas pessoas só procuram ajuda quando percebem que um dente está ficando mole.</p>
           <p>Nesse estágio, já pode existir uma perda significativa do suporte dentário.</p>
@@ -173,6 +164,7 @@ export default function Home() {
           <span>03 — ENTENDA A RELAÇÃO</span>
           <h2>Diabetes e periodontite: uma relação de mão dupla</h2>
           <p>Imagine duas condições alimentando uma à outra.</p>
+          <span className="source-copy-marker" aria-hidden="true">↓</span>
         </div>
         <div className="cycle-flow">
           <article className="cycle-card cycle-one">
@@ -213,25 +205,26 @@ export default function Home() {
       </section>
 
       <section className="evidence-section" id="tratamento">
-        <div className="evidence-card">
-          <div className="evidence-badge"><Activity aria-hidden="true" /><span>REVISÃO COCHRANE · 2022</span></div>
-          <div className="evidence-value"><strong>0,43</strong><span>↓</span></div>
-          <p>ponto percentual na HbA1c após 3 a 4 meses</p>
-        </div>
-        <div className="evidence-copy">
+        <div className="evidence-copy" id="evidencias-conteudo">
           <span>04 — EVIDÊNCIAS CIENTÍFICAS</span>
           <h2>O tratamento periodontal pode ajudar no controle da glicemia?</h2>
-          <p>As evidências científicas apontam que sim.</p>
-          <p>Estudos clínicos e revisões sistemáticas mostram que o tratamento da periodontite pode estar associado a uma redução da hemoglobina glicada (HbA1c), especialmente nos primeiros meses após o tratamento.</p>
-          <p>
-            Uma revisão Cochrane publicada em 2022, que reuniu 35 estudos e mais de 3.200 participantes, encontrou uma redução média de aproximadamente 0,43 ponto percentual na HbA1c após 3 a 4 meses do tratamento periodontal. {" "}
-            <a href="https://pubmed.ncbi.nlm.nih.gov/35420698/" target="_blank" rel="noreferrer">(PubMed⁠￼)</a>
-          </p>
-          <p>Isso não significa que o tratamento periodontal substitua medicamentos, alimentação, atividade física ou o acompanhamento médico.</p>
-          <p>Significa que controlar a inflamação periodontal pode fazer parte de uma estratégia mais completa para o cuidado da pessoa com diabetes.</p>
-          <p>O cuidado precisa ser integrado.</p>
-          <p className="care-team">Médico + endocrinologista + periodontista + paciente.</p>
-          <p>Cada profissional cuidando de uma parte importante da mesma saúde.</p>
+          <div className="evidence-grid">
+            <div className="evidence-intro">
+              <p>As evidências científicas apontam que sim.</p>
+              <p>Estudos clínicos e revisões sistemáticas mostram que o tratamento da periodontite pode estar associado a uma redução da hemoglobina glicada (HbA1c), especialmente nos primeiros meses após o tratamento.</p>
+              <p className="evidence-study">
+                Uma revisão Cochrane publicada em 2022, que reuniu 35 estudos e mais de 3.200 participantes, encontrou uma redução média de aproximadamente 0,43 ponto percentual na HbA1c após 3 a 4 meses do tratamento periodontal. {" "}
+                <a href="https://pubmed.ncbi.nlm.nih.gov/35420698/" target="_blank" rel="noreferrer">(PubMed⁠￼)</a>
+              </p>
+            </div>
+            <div className="evidence-details">
+              <p>Isso não significa que o tratamento periodontal substitua medicamentos, alimentação, atividade física ou o acompanhamento médico.</p>
+              <p>Significa que controlar a inflamação periodontal pode fazer parte de uma estratégia mais completa para o cuidado da pessoa com diabetes.</p>
+              <p>O cuidado precisa ser integrado.</p>
+              <p className="care-team">Médico + endocrinologista + periodontista + paciente.</p>
+              <p>Cada profissional cuidando de uma parte importante da mesma saúde.</p>
+            </div>
+          </div>
         </div>
       </section>
 

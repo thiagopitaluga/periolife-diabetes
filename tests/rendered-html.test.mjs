@@ -31,6 +31,8 @@ test("server-renders the PerioLife diabetes landing page", async () => {
   assert.match(html, /AGENDAR UMA AVALIAÇÃO PERIODONTAL/);
   assert.match(html, /wa\.me\/5561999603770/);
   assert.match(html, /\/og\.png/);
+  assert.match(html, /periolife-diabetes-hero\.png/);
+  assert.doesNotMatch(html, /relacao-visual|evidence-card|REVISÃO COCHRANE · 2022/);
   assert.doesNotMatch(html, /codex-preview|SkeletonPreview|react-loading-skeleton/i);
 });
 
