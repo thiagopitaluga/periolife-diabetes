@@ -870,8 +870,12 @@ footer { background: var(--forest-deep); padding: 75px max(32px, calc((100vw - v
     min-height: 760px;
     padding: 104px 19px 76px;
   }
-  .hero-background { object-position: 62% center; }
-  .hero::before { background: linear-gradient(180deg, rgba(247, 244, 238, .98) 0%, rgba(247, 244, 238, .9) 48%, rgba(247, 244, 238, .45) 76%, rgba(247, 244, 238, .12) 100%); }
+  .hero-background { object-position: 100% center; }
+  .hero::before {
+    background:
+      linear-gradient(90deg, rgba(247, 244, 238, .96) 0%, rgba(247, 244, 238, .86) 48%, rgba(247, 244, 238, .48) 78%, rgba(247, 244, 238, .24) 100%),
+      linear-gradient(180deg, rgba(247, 244, 238, .3) 0%, rgba(247, 244, 238, .12) 62%, rgba(247, 244, 238, .04) 100%);
+  }
   .hero::after { height: 35%; }
   .hero-copy { max-width: 100%; }
   .hero h1 { font-size: clamp(2.72rem, 10.5vw, 3rem); line-height: .96; }
@@ -890,4 +894,167 @@ footer { background: var(--forest-deep); padding: 75px max(32px, calc((100vw - v
   .evidence-grid { margin-top: 45px; padding-top: 34px; }
   .evidence-intro > p:first-child { font-size: 26px; }
   .evidence-study { padding: 24px 22px; }
+}
+
+/* Final editorial simplification */
+.two-column { grid-template-columns: 1fr; }
+.two-column .content-narrow { max-width: 900px; }
+
+.after-list {
+  display: block;
+  margin-top: 64px;
+  border: 0;
+}
+.after-list h3 {
+  max-width: 720px;
+  margin: 0 0 28px;
+  color: var(--sage-deep);
+  font-family: Georgia, serif;
+  font-size: clamp(2rem, 3.4vw, 3.25rem);
+  font-weight: 500;
+  line-height: 1.12;
+}
+.after-list > p.after-point:not(.closing-line) {
+  position: relative;
+  min-height: 0;
+  max-width: 850px;
+  margin: 0 0 15px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  padding: 0 0 0 32px;
+  color: rgba(38, 49, 44, .72);
+  font-size: 16px;
+  line-height: 1.75;
+  box-shadow: none;
+}
+.after-list > p.after-point:not(.closing-line)::before {
+  content: ">";
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: var(--gold);
+  font-family: Georgia, serif;
+  font-size: 22px;
+}
+.after-list > p.after-point:not(.closing-line)::after { display: none; }
+.after-list .closing-line {
+  margin-top: 42px;
+  border: 0;
+}
+
+.cycle-flow {
+  max-width: 980px;
+  grid-template-areas: "one" "two" "three" "four";
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+.cycle-card {
+  min-height: auto;
+  border-radius: 20px;
+  border-left: 3px solid rgba(192, 157, 101, .72);
+  padding: 34px 38px;
+}
+.cycle-card:hover { transform: translateX(5px); }
+.cycle-flow h3 { margin: 0 0 15px; }
+.cycle-flow p { max-width: 760px; }
+.cycle-card::after,
+.cycle-core,
+.flow-arrow { display: none; }
+
+.evidence-grid {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.life-stage-section {
+  max-width: 980px;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+.life-stage-section article { min-height: auto; }
+
+.specialist-section {
+  min-height: 850px;
+  align-items: center;
+  padding-top: 110px;
+  padding-bottom: 110px;
+}
+.doctor-visual {
+  min-height: 0;
+  align-items: center;
+  align-self: center;
+}
+.doctor-visual img {
+  width: min(100%, 520px);
+  max-height: none;
+  aspect-ratio: 4 / 5;
+  border: 1px solid rgba(255, 255, 255, .25);
+  border-radius: 34px;
+  background: rgba(255, 255, 255, .06);
+  padding: 11px;
+  object-fit: cover;
+  object-position: center 18%;
+  box-shadow: 0 28px 70px rgba(0, 0, 0, .22);
+  filter: none;
+}
+.specialist-copy { padding-bottom: 0; }
+
+.conversion-section {
+  position: relative;
+  min-height: 790px;
+  display: flex;
+  align-items: center;
+  background-image:
+    linear-gradient(90deg, rgba(31, 57, 48, .98) 0%, rgba(31, 57, 48, .9) 43%, rgba(31, 57, 48, .5) 67%, rgba(31, 57, 48, .14) 100%),
+    url("/assets/clinica-consultorio.png");
+  background-position: center;
+  background-size: cover;
+}
+.conversion-copy {
+  position: relative;
+  z-index: 1;
+  width: min(58%, 680px);
+}
+
+@media (max-width: 880px) {
+  .cycle-flow { max-width: none; gap: 14px; }
+  .cycle-card:not(:last-of-type)::before { display: none; }
+  .life-stage-section { max-width: none; }
+  .specialist-section { align-items: center; padding-bottom: 90px; }
+  .doctor-visual { order: 0; min-height: 0; }
+  .doctor-visual img { width: min(100%, 500px); max-height: none; }
+  .conversion-section {
+    min-height: 760px;
+    background-image:
+      linear-gradient(90deg, rgba(31, 57, 48, .96) 0%, rgba(31, 57, 48, .84) 62%, rgba(31, 57, 48, .42) 100%),
+      url("/assets/clinica-consultorio.png");
+    background-position: 58% center;
+  }
+  .conversion-copy { width: min(78%, 680px); }
+}
+
+@media (max-width: 560px) {
+  .hero-background { object-position: 62% center; }
+  .hero::before {
+    background: linear-gradient(180deg, rgba(247, 244, 238, .98) 0%, rgba(247, 244, 238, .9) 48%, rgba(247, 244, 238, .45) 76%, rgba(247, 244, 238, .12) 100%);
+  }
+  .symptoms-list li { grid-template-columns: 50px 1fr; }
+  .after-list { margin-top: 46px; }
+  .after-list h3 { font-size: 2.25rem; }
+  .after-list > p.after-point:not(.closing-line) { padding: 0 0 0 27px; font-size: 15px; }
+  .after-list .closing-line { margin-top: 32px; }
+  .cycle-card { padding: 27px 25px; }
+  .life-stage-section article { padding: 32px 25px; }
+  .specialist-section { padding-top: 78px; padding-bottom: 78px; }
+  .doctor-visual { min-height: 0; }
+  .doctor-visual img { width: 100%; max-height: none; border-radius: 26px; padding: 8px; }
+  .conversion-section {
+    min-height: 760px;
+    background-image:
+      linear-gradient(180deg, rgba(31, 57, 48, .95) 0%, rgba(31, 57, 48, .84) 62%, rgba(31, 57, 48, .6) 100%),
+      url("/assets/clinica-consultorio.png");
+    background-position: 62% center;
+  }
+  .conversion-copy { width: 100%; padding: 75px 25px; }
 }

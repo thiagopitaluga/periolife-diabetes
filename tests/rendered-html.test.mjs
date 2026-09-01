@@ -33,6 +33,8 @@ test("server-renders the PerioLife diabetes landing page", async () => {
   assert.match(html, /\/og\.png/);
   assert.match(html, /periolife-diabetes-hero\.png/);
   assert.doesNotMatch(html, /relacao-visual|evidence-card|REVISÃO COCHRANE · 2022/);
+  assert.doesNotMatch(html, /section-number|symptom-number|cycle-card-head|cycle-core|conversion-photo/);
+  assert.doesNotMatch(html, /0[1-7] —/);
   assert.doesNotMatch(html, /codex-preview|SkeletonPreview|react-loading-skeleton/i);
 });
 

@@ -1,20 +1,15 @@
 import {
   Activity,
-  ArrowDown,
   ArrowRight,
   Check,
   CircleAlert,
   Clock,
   Droplets,
-  Flame,
-  Gauge,
   HeartPulse,
   MessageCircle,
   Move,
   MoveDown,
-  RefreshCw,
   Search,
-  ShieldCheck,
   Stethoscope,
   Wind,
   Zap,
@@ -119,7 +114,6 @@ export default function Home() {
       </section>
 
       <section className="editorial-section two-column">
-        <div className="section-number">01</div>
         <div className="content-narrow">
           <p>Quando falamos em controle do diabetes, pensamos em alimentação, atividade física, medicamentos e exames de sangue.</p>
           <p>Mas existe um cuidado que muitas vezes fica de fora: a saúde periodontal.</p>
@@ -135,7 +129,7 @@ export default function Home() {
 
       <section className="editorial-section silent-section" id="silenciosa">
         <div className="section-heading">
-          <span>02 — ATENÇÃO AOS SINAIS</span>
+          <span>ATENÇÃO AOS SINAIS</span>
           <h2>A doença periodontal pode ser silenciosa</h2>
           <div className="silent-intro">
             <p>A periodontite é uma doença inflamatória crônica que destrói, progressivamente, os tecidos que sustentam os dentes.</p>
@@ -143,55 +137,45 @@ export default function Home() {
           </div>
         </div>
         <ul className="symptoms-list">
-          {symptoms.map(({ text, Icon }, index) => (
+          {symptoms.map(({ text, Icon }) => (
             <li key={text}>
-              <span className="symptom-number">{String(index + 1).padStart(2, "0")}</span>
               <span className="symptom-icon"><Icon aria-hidden="true" /></span>
               <strong>{text}</strong>
             </li>
           ))}
         </ul>
         <div className="after-list prose-wide" id="diagnostico-precoce">
-          <p>Mas nem sempre existe dor.</p>
-          <p>E é justamente por isso que muitas pessoas só procuram ajuda quando percebem que um dente está ficando mole.</p>
-          <p>Nesse estágio, já pode existir uma perda significativa do suporte dentário.</p>
+          <h3>Mas nem sempre existe dor.</h3>
+          <p className="after-point">E é justamente por isso que muitas pessoas só procuram ajuda quando percebem que um dente está ficando mole.</p>
+          <p className="after-point">Nesse estágio, já pode existir uma perda significativa do suporte dentário.</p>
           <p className="closing-line">A melhor hora para diagnosticar a periodontite é antes de ela comprometer seus dentes.</p>
         </div>
       </section>
 
       <section className="cycle-section" id="mao-dupla">
         <div className="cycle-intro">
-          <span>03 — ENTENDA A RELAÇÃO</span>
+          <span>ENTENDA A RELAÇÃO</span>
           <h2>Diabetes e periodontite: uma relação de mão dupla</h2>
           <p>Imagine duas condições alimentando uma à outra.</p>
           <span className="source-copy-marker" aria-hidden="true">↓</span>
         </div>
         <div className="cycle-flow">
           <article className="cycle-card cycle-one">
-            <div className="cycle-card-head"><span>01</span><Gauge aria-hidden="true" /></div>
             <h3>DIABETES</h3>
             <p>A hiperglicemia pode favorecer alterações na resposta inflamatória e na capacidade de defesa do organismo.</p>
           </article>
           <article className="cycle-card cycle-two">
-            <div className="cycle-card-head"><span>02</span><ShieldCheck aria-hidden="true" /></div>
             <h3>MAIOR RISCO E GRAVIDADE DA PERIODONTITE</h3>
             <p>A inflamação periodontal pode se tornar mais intensa e a destruição dos tecidos de suporte dos dentes pode ser mais acelerada.</p>
           </article>
           <article className="cycle-card cycle-three">
-            <div className="cycle-card-head"><span>03</span><Flame aria-hidden="true" /></div>
             <h3>INFLAMAÇÃO PERIODONTAL</h3>
             <p>A periodontite é uma fonte crônica de inflamação.</p>
           </article>
           <article className="cycle-card cycle-four">
-            <div className="cycle-card-head"><span>04</span><Activity aria-hidden="true" /></div>
             <h3>MAIOR DIFICULDADE NO CONTROLE GLICÊMICO</h3>
             <p>A inflamação periodontal pode contribuir para alterações relacionadas à resistência à insulina e dificultar o alcance das metas glicêmicas.</p>
           </article>
-          <div className="cycle-core" aria-hidden="true"><RefreshCw /><span>relação<br />bidirecional</span></div>
-          <i className="flow-arrow arrow-top" aria-hidden="true"><ArrowRight /></i>
-          <i className="flow-arrow arrow-right" aria-hidden="true"><ArrowDown /></i>
-          <i className="flow-arrow arrow-bottom" aria-hidden="true"><ArrowRight /></i>
-          <i className="flow-arrow arrow-left" aria-hidden="true"><ArrowDown /></i>
         </div>
         <div className="cycle-conclusion">
           <p className="large">É uma relação bidirecional.</p>
@@ -206,7 +190,7 @@ export default function Home() {
 
       <section className="evidence-section" id="tratamento">
         <div className="evidence-copy" id="evidencias-conteudo">
-          <span>04 — EVIDÊNCIAS CIENTÍFICAS</span>
+          <span>EVIDÊNCIAS CIENTÍFICAS</span>
           <h2>O tratamento periodontal pode ajudar no controle da glicemia?</h2>
           <div className="evidence-grid">
             <div className="evidence-intro">
@@ -233,7 +217,7 @@ export default function Home() {
       <section className="life-stage-section">
         <article>
           <div className="stage-icon"><Search aria-hidden="true" /></div>
-          <span>05 — DIAGNÓSTICO RECENTE</span>
+          <span>DIAGNÓSTICO RECENTE</span>
           <h2>Você descobriu que tem diabetes recentemente?</h2>
           <p>Então este é um ótimo momento para olhar também para a sua saúde periodontal.</p>
           <p>Mesmo que você:</p>
@@ -247,7 +231,7 @@ export default function Home() {
 
         <article className="dark-stage">
           <div className="stage-icon"><Clock aria-hidden="true" /></div>
-          <span>06 — DIABETES HÁ ANOS</span>
+          <span>DIABETES HÁ ANOS</span>
           <h2>E se você já tem diabetes há anos?</h2>
           <p>Também vale investigar.</p>
           <p>Principalmente se você apresenta:</p>
@@ -260,11 +244,10 @@ export default function Home() {
 
       <section className="specialist-section" id="especialista">
         <div className="doctor-visual">
-          <div className="doctor-halo" />
           <img src="/assets/dra-elisa-grilo.png" alt="Dra. Elisa Grilo" loading="lazy" />
         </div>
         <div className="specialist-copy">
-          <span>07 — CUIDADO ESPECIALIZADO</span>
+          <span>CUIDADO ESPECIALIZADO</span>
           <h2>Por que procurar um periodontista?</h2>
           <p>O periodontista é o dentista especializado no diagnóstico, prevenção e tratamento das doenças que afetam os tecidos que sustentam os dentes: gengiva, ligamento periodontal e osso.</p>
           <p>No paciente com diabetes, essa avaliação ganha ainda mais importância porque é necessário considerar não apenas o que acontece na boca, mas também a relação entre inflamação periodontal e condição metabólica.</p>
@@ -288,9 +271,6 @@ export default function Home() {
           <p>Se você tem diabetes, faça uma avaliação periodontal.</p>
           <p>Na PerioLife, você encontra atendimento especializado em Periodontia em Brasília.</p>
           <Cta final />
-        </div>
-        <div className="conversion-photo">
-          <img src="/assets/clinica-consultorio.png" alt="Consultório da PerioLife em Brasília" loading="lazy" />
         </div>
       </section>
 
