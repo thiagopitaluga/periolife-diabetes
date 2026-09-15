@@ -249,16 +249,13 @@ export default function Home() {
         <div className="specialist-copy">
           <span>CUIDADO ESPECIALIZADO</span>
           <h2>Por que procurar um periodontista?</h2>
-          <p>O periodontista é o dentista especializado no diagnóstico, prevenção e tratamento das doenças que afetam os tecidos que sustentam os dentes: gengiva, ligamento periodontal e osso.</p>
-          <p>No paciente com diabetes, essa avaliação ganha ainda mais importância porque é necessário considerar não apenas o que acontece na boca, mas também a relação entre inflamação periodontal e condição metabólica.</p>
-          <p>Na PerioLife, esse cuidado é realizado por uma profissional dedicada à Periodontia:</p>
           <div className="doctor-name">
             <Stethoscope aria-hidden="true" />
             <div><strong>Dra. Elisa Grilo</strong><span>Especialista em Periodontia</span></div>
           </div>
-          <p>Um olhar especializado para diagnosticar a doença periodontal, determinar seu estágio e grau de evolução e definir um plano de tratamento individualizado.</p>
-          <p>Porque tratar gengiva não é simplesmente “fazer uma limpeza”.</p>
-          <p className="diagnosis-line">É diagnosticar. É controlar a inflamação. É preservar o suporte dos dentes. É acompanhar.</p>
+          <p>Cirurgiã-dentista especialista em Periodontia, mestre e doutoranda em Odontologia pela Universidade de Brasília (UnB).</p>
+          <p>Parte de sua pesquisa foi desenvolvida no J. Craig Venter Institute (JCVI), na Califórnia, um dos principais centros mundiais de genômica e biologia molecular — investigando os processos inflamatórios que conectam a saúde da boca ao restante do organismo.</p>
+          <p>Com habilitação em Laserterapia pela Universidade de São Paulo (USP), dedica-se ao diagnóstico e tratamento das doenças periodontais, com ênfase em pacientes com diabetes e outras condições sistêmicas.</p>
         </div>
       </section>
 

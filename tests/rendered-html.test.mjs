@@ -26,6 +26,10 @@ test("server-renders the PerioLife diabetes landing page", async () => {
   assert.match(html, /Diabetes e Saúde Periodontal \| PerioLife Brasília/i);
   assert.match(html, /Diabetes e saúde periodontal:.*uma relação que você precisa conhecer/is);
   assert.match(html, /Dra\. Elisa Grilo/i);
+  assert.match(html, /Cirurgiã-dentista especialista em Periodontia, mestre e doutoranda em Odontologia pela Universidade de Brasília \(UnB\)/i);
+  assert.match(html, /J\. Craig Venter Institute \(JCVI\)/i);
+  assert.match(html, /habilitação em Laserterapia pela Universidade de São Paulo \(USP\)/i);
+  assert.doesNotMatch(html, /Porque tratar gengiva não é simplesmente/);
   assert.match(html, /0,43/);
   assert.match(html, /QUERO AVALIAR MINHA SAÚDE PERIODONTAL/);
   assert.match(html, /AGENDAR UMA AVALIAÇÃO PERIODONTAL/);
